@@ -1,7 +1,7 @@
 FROM node:lts-alpine3.15 as builder
 WORKDIR /app
 COPY . .
-RUN yarn build
+RUN yarn install && yarn build
 
 FROM node:lts-alpine3.15
 COPY --from=builder /app/node_modules /app/node_modules
